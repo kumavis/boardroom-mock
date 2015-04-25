@@ -1,0 +1,9 @@
+.primary-content:not(.active-primary-content) {
+  display: none;
+}
+
+.current-user {
+  vertical-align: middle;
+  height: 44px;
+  display: inline-block;
+}

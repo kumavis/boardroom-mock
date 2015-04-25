@@ -5,8 +5,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" type="text/css" class="__meteor-css__" href="./assets/4ff7ec9cfa832df1451829778fd9bc1401d1cc66.css">
+    <link rel="stylesheet" type="text/css" href="./assets/app.css">
     <script type="text/javascript" src="./assets/jquery.min.js"></script>
-    <script type="text/javascript" src="./assets/index.js"></script>
     <!-- <script type="text/javascript" src="./assets/008a7bf2f81f27bdacc573a814bd15b138320141.js"></script> -->
 
     <!--<base href="/">-->
@@ -43,8 +43,7 @@
     <!-- <link rel="ethereum-dapp-icon" href="/apple-touch-icon-precomposed.png"> -->
     <!-- <link rel="apple-touch-icon" href="/apple-touch-icon-precomposed.png"> -->
     <!-- <link rel="apple-touch-startup-image" href="/startup.png"> -->
-    <title>BoardRoom | View 2</title>
-    <link rel="stylesheet" type="text/css" href="chrome-extension://pkehgijcmpdhfbdbbnkijodmdjhbjlgp/skin/socialwidgets.css">
+    <title>BoardRoom</title>
 </head>
 
 <body>
@@ -54,6 +53,12 @@
             <div class="navbar-header">
                 <a class="navbar-brand" href="http://meteor-dapp-boardroom.meteor.com/"><i class="glyphicon text-primary glyphicon-knight"></i> BoardRoom</a>
             </div>
+            
+            <ul class="nav navbar-nav navbar-right navbar-brand">
+              <a href="#" class="dapp-identicon dapp-small" style="background-image: url(&#39;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABUklEQVR4Xu2a0RGDMAxDyRwswBxloM7S2ToDc7Qb+H3ofGeO119OJlEkOWlY3+P4bcHvve8l+nNdQfVt666/JEAFaAEzIEmp7pDqrm8I2gXCLpDYZwI2tsCESSRjkIA0AxL2J2BVgAqwC2RngQk+TsawXucZnQXovE9bWRp8d30JUAFawAwwBCmJq+fdKd1d3y6QdoFEPROwsQImTCIZgwRogXAjlMhvAlYLaAEtUJ8F0p0Y4SkH6P8Eqk94zID0BYSXAGCAVpAIJrwKoC6QMkx4LaAFagbIw6QwwpsBdDVGDJKHaYUI3/1+vBztHoAEhCFIBJICVYAZANfjZgB8DZ56kPDdC2AGUAbQCt39OSrg7hOk8UuAFvArsYd/JaYFtEBtAdqJ0WmL8NSm0vqExzZIE6AXEF4CgIGUYMKrAOoCJGFimPBaQAvUDKQKI/zjM+AP+OugSGdApP0AAAAASUVORK5CYII=&#39;)"></a>
+              <span class="current-user">Edward Snowden</span>
+            </ul>
+
             <!-- <ul class="nav navbar-nav navbar-right">
                 <li><a href="http://meteor-dapp-boardroom.meteor.com/view1">View1</a></li>
                 <li><a href="./assets/BoardRoom _ View 2.html">View2</a></li>
@@ -63,7 +68,24 @@
 
     <!-- content -->
     <main class="container-fluid">
-        <div class="row-fluid">
+
+        <!-- primary content board-vapor -->
+
+        <div class="row-fluid primary-content content-landing">
+          <a class="btn-landing">Boards</a>
+          <br><br>
+          <h3>Active boards</h3>
+          <a class="btn-board-vapor">Vapor</a>
+          <br><br>
+          <button class="btn-board-new">Create new Board</button>
+        </div>
+
+        <!-- primary content board-vapor -->
+
+        <div class="row-fluid primary-content content-board-vapor">
+          <a class="btn-landing">Boards</a> &gt; <a class="btn-board-vapor">Vapor</a>
+          <br><br> 
+
             <div class="col-md-6">
 
                 <div class="panel panel-default panel-dapp">
@@ -96,7 +118,8 @@
                                 <td>By</td>
                                 <td>Value</td>
                                 <td>Votes</td>
-                                <td colspan="2">Address</td>
+                                <!-- <td colspan="2">Address</td> -->
+                                <td>Actions</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -107,10 +130,10 @@
                                 <td>(C) N. Dodson</td>
                                 <td>0</td>
                                 <td>1/2</td>
-                                <td>0xd0xd48f..</td>
+                                <!-- <td>0xd0xd48f..</td> -->
                                 <td>
                                     <button type="button" class="btn btn-default btn-primary">Vote <i class="glyphicon glyphicon-ok"></i></button>
-                                    <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-share-alt"></i></button>
+                                    <!-- <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-share-alt"></i></button> -->
                                 </td>
                             </tr>
                             <tr style="background: #F1F1F1;">
@@ -120,7 +143,7 @@
                                 <td>J. Reddman</td>
                                 <td>E 430.50</td>
                                 <td>2/2</td>
-                                <td>0xhsjFHS..</td>
+                                <!-- <td>0xhsjFHS..</td> -->
                                 <td>
                                     <button type="button" class="btn btn-default btn-success">Won <i class="glyphicon glyphicon-flash"></i></button>
                                 </td>
@@ -142,8 +165,9 @@
                                 <td>Chair</td>
                                 <td>Budget</td>
                                 <td>Proposals</td>
-                                <td>Address</td>
-                                <td colspan="2">Members</td>
+                                <!-- <td>Address</td> -->
+                                <!-- <td colspan="2">Members</td> -->
+                                <td>Members</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -153,11 +177,11 @@
                                 <td>John Wallace</td>
                                 <td>E 12,034</td>
                                 <td>36</td>
-                                <td>0xHfid783984...</td>
+                                <!-- <td>0xHfid783984...</td> -->
                                 <td>4</td>
-                                <td>
+                                <!-- <td>
                                     <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-comment"></i></button>
-                                </td>
+                                </td> -->
                             </tr>
 
                             <!--<tr>
@@ -265,10 +289,178 @@
 
             </div>
         </div>
+
+        <!-- end primary content board-vapor -->
+
+        <!-- primary content board-new -->
+
+        <div class="row-fluid primary-content content-board-new active-primary-content">
+          <a class="btn-landing">Boards</a> &gt; <a class="btn-board-new">New</a>
+          <br><br> 
+
+            <div class="col-md-6">
+
+                <div class="panel panel-default panel-dapp">
+                    <div class="panel-heading">Board Health<small style="float: right; font-size: 14px; line-height: 30px;"><i class="glyphicon glyphicon glyphicon-copyright-mark"></i> ContractAddr <strong>0x738fhs..</strong></small></div>
+                    <table class="panel-body table table-bordered">
+                        <tbody>
+                            <tr>
+                                <td>Budget <strong>48,5000 </strong> ether</td>
+                                <td>Chair <strong>N. Dodson</strong> </td>
+                                <td><strong>5</strong> Members</td>
+                                <td><strong>120</strong> Proposals Tabled</td>
+                                <td><strong>88</strong> Won</td>
+                                <td><strong>42</strong> Lost</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="panel panel-default panel-dapp">
+                    <div class="panel-heading"><i class="glyphicon glyphicon-check"></i> Proposals</div>
+                    <div class="panel-body">
+                        <p>The active and finished proposals.</p>
+                    </div>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <td>#ID</td>
+                                <td>Name</td>
+                                <td>Type</td>
+                                <td>By</td>
+                                <td>Value</td>
+                                <td>Votes</td>
+                                <!-- <td colspan="2">Address</td> -->
+                                <td>Actions</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="background: #F1F1F1;">
+                                <td>0</td>
+                                <td><a href="http://meteor-dapp-boardroom.meteor.com/balan3e.io/Dhjs778d">2015 Budget</a></td>
+                                <td>Exec</td>
+                                <td>Edward Snowden</td>
+                                <td>E 430.50</td>
+                                <td>2/2</td>
+                                <!-- <td>0xhsjFHS..</td> -->
+                                <td>
+                                    <button type="button" class="btn btn-default btn-success">Won <i class="glyphicon glyphicon-flash"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="panel panel-default panel-dapp">
+                    <div class="panel-heading"><i class="glyphicon glyphicon-log-in"></i> Sub-Committees <small style="float: right; font-size: 14px; line-height: 30px;"><i class="glyphicon glyphicon-registration-mark"></i> NameReg <strong>0x983478..</strong></small></div>
+                    <div class="panel-body">
+                        <p>Linked sub-commities to this board.</p>
+                    </div>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <td>#ID</td>
+                                <td>Name</td>
+                                <td>Chair</td>
+                                <td>Budget</td>
+                                <td>Proposals</td>
+                                <td>Members</td>
+                            </tr>
+                        </thead>
+                    </table>
+                    <div class="panel-body">
+                      No sub-commitees yet.
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-6">
+
+                <div class="panel panel-default panel-dapp">
+                    <div class="panel-heading"><i class="glyphicon glyphicon-file"></i> New Proposal</div>
+                    <div class="panel-body">
+                        <form>
+                            <input type="text" placeholder="Name" class="form-control" style="float: left; width: 48%;">
+                            <select class="form-control" style="float: left; width: 48%; margin-left: 4%;">
+                                <option>Type</option>
+                                <option>Exec</option>
+                                <option>Add Member</option>
+                                <option>Remove Member</option>
+                                <option>New Chair</option>
+                            </select>
+
+                            <br>
+                            <br>
+
+                            <input type="text" placeholder="To Addr." class="form-control" style="margin-top: 15px;">
+
+                            <!--                        
+                        <hr />
+
+<input type="text" placeholder="URL" class="form-control">
+                        
+                        <br>
+                        
+                        <input type="text" placeholder="Value" class="form-control">-->
+
+                            <hr>
+
+                            <button type="button" class="btn btn-default">Value+</button>
+
+                            <button type="button" class="btn btn-default">URL+</button>
+
+                            <button type="button" class="btn btn-default">Clear</button>
+
+                            <button type="button" class="btn btn-default btn-primary">Table Proposal</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="panel panel-default panel-dapp">
+                    <div class="panel-heading"><i class="glyphicon glyphicon-user"></i> Board Members <small style="float: right; font-size: 14px; line-height: 30px;"><i class="glyphicon glyphicon-registration-mark"></i> NameReg <strong>0x983478..</strong></small></div>
+                    <div class="panel-body">
+                        <p>These are the board members.</p>
+                    </div>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <td>#</td>
+                                <td>Identicon</td>
+                                <td>Name</td>
+                                <!-- <td colspan="2">Address</td> -->
+                                <td>Actions</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>
+                                    <a href="" class="dapp-identicon dapp-small" style="background-image: url(&#39;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABUklEQVR4Xu2a0RGDMAxDyRwswBxloM7S2ToDc7Qb+H3ofGeO119OJlEkOWlY3+P4bcHvve8l+nNdQfVt666/JEAFaAEzIEmp7pDqrm8I2gXCLpDYZwI2tsCESSRjkIA0AxL2J2BVgAqwC2RngQk+TsawXucZnQXovE9bWRp8d30JUAFawAwwBCmJq+fdKd1d3y6QdoFEPROwsQImTCIZgwRogXAjlMhvAlYLaAEtUJ8F0p0Y4SkH6P8Eqk94zID0BYSXAGCAVpAIJrwKoC6QMkx4LaAFagbIw6QwwpsBdDVGDJKHaYUI3/1+vBztHoAEhCFIBJICVYAZANfjZgB8DZ56kPDdC2AGUAbQCt39OSrg7hOk8UuAFvArsYd/JaYFtEBtAdqJ0WmL8NSm0vqExzZIE6AXEF4CgIGUYMKrAOoCJGFimPBaQAvUDKQKI/zjM+AP+OugSGdApP0AAAAASUVORK5CYII=&#39;)"></a>
+                                </td>
+                                <td>Edward Snowden <b>(Chair)</b></td>
+                                <!-- <td>0x03b5e03b19b21e0872af8c278fea15fb1b8c1b29</td> -->
+                                <td>
+                                    <button type="button" class="btn btn-default">Propose Removal</button>
+                                    <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-comment"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+        </div>
+
+        <!-- end primary content board-new -->
+
     </main>
     <footer class="footernav">
         <p class="copyright text-muted small">Copyright © ÐApp BoardRoom 2015. All Rights Reserved</p>
     </footer>
+
+    <script type="text/javascript" src="./assets/index.js"></script>
+
 </body>
 
 </html>
