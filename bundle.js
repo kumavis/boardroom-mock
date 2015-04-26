@@ -59,9 +59,9 @@ $(document.body).on('click', '.btn-nav', function(){
 
 // render app
 
-// render('main')
+render('main')
 // render('main|offers')
-render('main|boards|board:boards.vapor')
+// render('main|boards|board:boards.vapor')
 
 
 // util
