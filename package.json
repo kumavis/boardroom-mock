@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "beefy index.js:bundle.js --live -- -t brfs",
+    "start": "beefy index.js:bundle.js --port 8000 --live -- -t brfs",
     "build": "browserify index.js -t brfs -o bundle.js",
     "serve": "npm run build && python -m SimpleHTTPServer 8000"
   },

@@ -59,7 +59,7 @@ $(document.body).on('click', '.btn-nav', function(){
 
 render('main')
 // render('main|offers')
-// render('main|boards|board:boards.vapor')
+render('main|boards|board:boards.vapor')
 
 
 // util
