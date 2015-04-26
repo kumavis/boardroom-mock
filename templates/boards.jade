@@ -1,0 +1,8 @@
+h3 Active Boards
+
+.yield
+  
+  ul
+  each board, index in boards
+    li
+      a.btn-nav( data-target="main|boards|board:boards.#{index}" )= board.name

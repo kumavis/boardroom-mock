@@ -1,9 +1,17 @@
-.primary-content:not(.active-primary-content) {
+/*.primary-content:not(.active-primary-content) {
   display: none;
 }
-
+*/
 .current-user {
   vertical-align: middle;
   height: 44px;
   display: inline-block;
+}
+
+.public-offer-description {
+  font-size: 18px;
+}
+
+.dapp-identicon-default {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABUklEQVR4Xu2a0RGDMAxDyRwswBxloM7S2ToDc7Qb+H3ofGeO119OJlEkOWlY3+P4bcHvve8l+nNdQfVt666/JEAFaAEzIEmp7pDqrm8I2gXCLpDYZwI2tsCESSRjkIA0AxL2J2BVgAqwC2RngQk+TsawXucZnQXovE9bWRp8d30JUAFawAwwBCmJq+fdKd1d3y6QdoFEPROwsQImTCIZgwRogXAjlMhvAlYLaAEtUJ8F0p0Y4SkH6P8Eqk94zID0BYSXAGCAVpAIJrwKoC6QMkx4LaAFagbIw6QwwpsBdDVGDJKHaYUI3/1+vBztHoAEhCFIBJICVYAZANfjZgB8DZ56kPDdC2AGUAbQCt39OSrg7hOk8UuAFvArsYd/JaYFtEBtAdqJ0WmL8NSm0vqExzZIE6AXEF4CgIGUYMKrAOoCJGFimPBaQAvUDKQKI/zjM+AP+OugSGdApP0AAAAASUVORK5CYII=');
 }

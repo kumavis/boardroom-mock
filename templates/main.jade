@@ -1,0 +1,32 @@
+nav.navbar.navbar-default
+  .container-fluid
+    .navbar-header
+      a.navbar-brand(href='http://meteor-dapp-boardroom.meteor.com/')
+        i.glyphicon.text-primary.glyphicon-knight
+        |  BoardRoom
+    |             
+    |             
+    ul.nav.navbar-nav.navbar-right.navbar-brand
+      a.dapp-identicon.dapp-identicon-default.dapp-small(href='#')
+      |               
+      span.current-user Edward Snowden
+
+main.container-fluid
+
+  // breadcrumbs
+  each viewPath, index in viewStack
+    if index !== 0
+      |  &gt;
+      |   
+    - var fullPath = viewStack.slice(0,index+1).join('|')
+    a.btn-nav.bread-crumb( data-target="#{fullPath}" ) #{viewPath}
+
+  br
+
+  // main content
+  .row-fluid.content-home
+    .template-yield
+    
+footer.footernav
+  p.copyright.text-muted.small Copyright &copy; &ETH;App BoardRoom 2015. All Rights Reserved
+

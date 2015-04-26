@@ -1,0 +1,254 @@
+h3= name
+
+.col-md-6
+  .panel.panel-default.panel-dapp
+    .panel-heading
+      | Board Health
+      small(style='float: right; font-size: 14px; line-height: 30px;')
+        i.glyphicon.glyphicon.glyphicon-copyright-mark
+        |  ContractAddr 
+        strong 0x738fhs..
+    |                     
+    table.panel-body.table.table-bordered
+      tbody
+        tr
+          td
+            | Budget 
+            strong 48,5000 
+            |  ether
+          |                                 
+          td
+            | Chair 
+            strong N. Dodson
+          |                                 
+          td
+            strong 5
+            |  Members
+          |                                 
+          td
+            strong 120
+            |  Proposals Tabled
+          |                                 
+          td
+            strong 88
+            |  Won
+          |                                 
+          td
+            strong 42
+            |  Lost
+  |                 
+  .panel.panel-default.panel-dapp
+    .panel-heading
+      i.glyphicon.glyphicon-check
+      |  Proposals
+    |                     
+    .panel-body
+      p The active and finished proposals.
+    |                     
+    table.table.table-bordered
+      thead
+        tr
+          td #ID
+          |                                 
+          td Name
+          |                                 
+          td Type
+          |                                 
+          td By
+          |                                 
+          td Value
+          |                                 
+          td Votes
+          // <td colspan="2">Address</td>
+          td Actions
+      |                         
+      tbody
+        tr
+          td 1
+          |                                 
+          td Make Jack a Member
+          |                                 
+          td Add Member
+          |                                 
+          td (C) N. Dodson
+          |                                 
+          td 0
+          |                                 
+          td 1/2
+          // <td>0xd0xd48f..</td>
+          td
+            button.btn.btn-default.btn-primary(type='button')
+              | Vote 
+              i.glyphicon.glyphicon-ok
+            // <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-share-alt"></i></button>
+        |                             
+        tr(style='background: #F1F1F1;')
+          td 0
+          |                                 
+          td
+            a(href='http://meteor-dapp-boardroom.meteor.com/balan3e.io/Dhjs778d') 2015 Budget
+          |                                 
+          td Exec
+          |                                 
+          td J. Reddman
+          |                                 
+          td E 430.50
+          |                                 
+          td 2/2
+          // <td>0xhsjFHS..</td>
+          td
+            button.btn.btn-default.btn-success(type='button')
+              | Won 
+              i.glyphicon.glyphicon-flash
+  |                 
+  .panel.panel-default.panel-dapp
+    .panel-heading
+      i.glyphicon.glyphicon-log-in
+      |  Sub-Committees 
+      small(style='float: right; font-size: 14px; line-height: 30px;')
+        i.glyphicon.glyphicon-registration-mark
+        |  NameReg 
+        strong 0x983478..
+    |                     
+    .panel-body
+      p Linked sub-commities to this board.
+    |                     
+    table.table.table-bordered
+      thead
+        tr
+          td #ID
+          |                                 
+          td Name
+          |                                 
+          td Chair
+          |                                 
+          td Budget
+          |                                 
+          td Proposals
+          // <td>Address</td>
+          // <td colspan="2">Members</td>
+          td Members
+      |                         
+      tbody
+        tr
+          td 0
+          |                                 
+          td Budget Comitee
+          |                                 
+          td John Wallace
+          |                                 
+          td E 12,034
+          |                                 
+          td 36
+          // <td>0xHfid783984...</td>
+          td 4
+          //
+            <td>
+            <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-comment"></i></button>
+            </td>
+        //
+          <tr>
+          <td>1</td>
+          <td>Make Jack a Member</td>
+          <td>Add Member</td>
+          <td>(C) N. Dodson</td>
+          <td>0</td>
+          <td>1/2</td>
+          <td>0xd0xd48f..</td>
+          <td><button type="button" class="btn btn-default btn-primary">Vote <i class="glyphicon glyphicon-ok"></i></button> <button type="button" class="btn btn-default "><i class="glyphicon glyphicon-share-alt"></i></button></td>
+          </tr>
+|             
+.col-md-6
+  .panel.panel-default.panel-dapp
+    .panel-heading
+      i.glyphicon.glyphicon-file
+      |  New Proposal
+    |                     
+    .panel-body
+      form
+        input.form-control(type='text', placeholder='Name', style='float: left; width: 48%;')
+        |                             
+        select.form-control(style='float: left; width: 48%; margin-left: 4%;')
+          option Type
+          |                                 
+          option Exec
+          |                                 
+          option Add Member
+          |                                 
+          option Remove Member
+          |                                 
+          option New Chair
+        |                             
+        br
+        |                             
+        br
+        |                             
+        input.form-control(type='text', placeholder='To Addr.', style='margin-top: 15px;')
+        //
+          <hr />
+          <input type="text" placeholder="URL" class="form-control">
+          <br>
+          <input type="text" placeholder="Value" class="form-control">
+        hr
+        |                             
+        button.btn.btn-default(type='button') Value+
+        |                             
+        button.btn.btn-default(type='button') URL+
+        |                             
+        button.btn.btn-default(type='button') Clear
+        |                             
+        button.btn.btn-default.btn-primary(type='button') Table Proposal
+  |                 
+  .panel.panel-default.panel-dapp
+    .panel-heading
+      i.glyphicon.glyphicon-user
+      |  Board Members 
+      small(style='float: right; font-size: 14px; line-height: 30px;')
+        i.glyphicon.glyphicon-registration-mark
+        |  NameReg 
+        strong 0x983478..
+    |                     
+    .panel-body
+      p These are the board members.
+    |                     
+    table.table.table-bordered
+      thead
+        tr
+          td #
+          |                                 
+          td Identicon
+          |                                 
+          td Name
+          // <td colspan="2">Address</td>
+          td Actions
+      |                         
+      tbody
+        tr
+          td 1
+          |                                 
+          td
+            a.dapp-identicon.dapp-identicon-default.dapp-small(href='')
+          |                                 
+          td
+            | Nick Dodson 
+            b (Chair)
+          // <td>0x03b5e03b19b21e0872af8c278fea15fb1b8c1b29</td>
+          td
+            button.btn.btn-default(type='button') Propose Removal
+            |                                     
+            button.btn.btn-default(type='button')
+              i.glyphicon.glyphicon-comment
+        |                             
+        tr
+          td 2
+          |                                 
+          td
+            a.dapp-identicon.dapp-identicon-default.dapp-small(href='')
+          |                                 
+          td John Reddman
+          // <td>0xd48faff315c0f9325a2e071296f73a583eb18a679</td>
+          td
+            button.btn.btn-default(type='button') Propose Removal
+            |                                     
+            button.btn.btn-default(type='button')
+              i.glyphicon.glyphicon-comment

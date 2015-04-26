@@ -1,0 +1,8 @@
+h3 Public Offers
+
+.yield
+  
+  ul
+  each offer, index in offers
+    li
+      a.btn-nav( data-target="main|offers|offer:offers.#{index}" )= offer.name

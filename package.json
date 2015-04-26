@@ -1,0 +1,25 @@
+{
+  "name": "boardroom-mock",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "beefy index.js:bundle.js --live -- -t brfs",
+    "build": "browserify index.js -t brfs -o bundle.js",
+    "serve": "npm run build && python -m SimpleHTTPServer 8000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/airship-industries/boardroom-mock.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/airship-industries/boardroom-mock/issues"
+  },
+  "homepage": "https://github.com/airship-industries/boardroom-mock#readme",
+  "dependencies": {
+    "brfs": "^1.4.0",
+    "jade": "^1.9.2"
+  }
+}
