@@ -17,7 +17,7 @@ var TEMPLATES = {
 }
 
 // its global baby
-var APP_STATE = window.APP_STATE = {
+APP_STATE = {
   boards: {
     vapor: {
       key: 'vapor',
@@ -102,6 +102,7 @@ function lookupByPath(obj, path) {
 }
 
 // global action handlers? ah naw!
+var window = (0,eval)('window')
 
 window.createProposal = function(board){
   var newProp = {
