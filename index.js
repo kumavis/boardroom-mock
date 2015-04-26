@@ -45,7 +45,6 @@ var APP_STATE = window.APP_STATE = {
     vapor: {
       key: 'vapor',
     },
-    kittenFund: { name: 'kittenFund' },
   },
 }
 

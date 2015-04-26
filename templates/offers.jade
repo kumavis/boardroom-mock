@@ -5,4 +5,4 @@ h3 Public Offers
   ul
   each offer, index in offers
     li
-      a.btn-nav( data-target="main|offers|offer:offers.#{index}" )= offer.name
+      a.btn-nav( data-target="main|offers|offer:offers.#{index}" )= APP_STATE.boards[offer.key].name
