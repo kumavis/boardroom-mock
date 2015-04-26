@@ -1,6 +1,7 @@
 h3= name
 
 .col-md-6
+
   .panel.panel-default.panel-dapp
     .panel-heading
       | Board Health
@@ -10,33 +11,50 @@ h3= name
         strong 0x738fhs..
     |                     
     table.panel-body.table.table-bordered
+      thead
+        tr
+          td Budget
+          td Chair
+          td Members
+          td Proposals Tabled
       tbody
         tr
           td
-            | Budget 
-            strong 48,5000 
-            |  ether
-          |                                 
+            strong= budget
+            |  USD                                
           td
-            | Chair 
-            strong N. Dodson
-          |                                 
+            strong= chairPerson         
           td
-            strong 5
-            |  Members
-          |                                 
+            strong= members.length         
           td
-            strong 120
-            |  Proposals Tabled
-          |                                 
-          td
-            strong 88
-            |  Won
-          |                                 
-          td
-            strong 42
-            |  Lost
-  |                 
+            strong= proposals.length
+
+  .panel.panel-default.panel-dapp
+    .panel-heading
+      i.glyphicon.glyphicon-user
+      |  Board Members 
+      small(style='float: right; font-size: 14px; line-height: 30px;')
+        i.glyphicon.glyphicon-registration-mark
+        |  NameReg 
+        strong 0x983478..
+    table.table.table-bordered
+      thead
+        tr
+          td #
+          td Name
+          td Holdings
+      tbody
+        each member, index in members
+          tr
+            td= index+1                                
+            td
+              .dapp-identicon.dapp-identicon-default.dapp-small(href='')                               
+              span.app-user-icon-label=member.name
+            td= member.holdings
+
+
+.col-md-6
+
   .panel.panel-default.panel-dapp
     .panel-heading
       i.glyphicon.glyphicon-check
@@ -75,8 +93,6 @@ h3= name
                     | Won 
                     i.glyphicon.glyphicon-flash
 
-
-.col-md-6
   .panel.panel-default.panel-dapp
     .panel-heading
       i.glyphicon.glyphicon-file
@@ -94,11 +110,12 @@ h3= name
           style='float: left; width: 48%; margin-left: 4%;'
           data-key='type'
         )
-          option Type                       
-          option Exec              
-          option Add Member              
+          option Type
+          option Exec
+          option Add Member      
           option Remove Member
           option New Chair
+          option Public Offer
                             
         br
         br
@@ -116,26 +133,3 @@ h3= name
           type='button'
           onclick='window.createProposal(APP_STATE.boards.#{key})'
         ) Table Proposal
-  |                 
-  .panel.panel-default.panel-dapp
-    .panel-heading
-      i.glyphicon.glyphicon-user
-      |  Board Members 
-      small(style='float: right; font-size: 14px; line-height: 30px;')
-        i.glyphicon.glyphicon-registration-mark
-        |  NameReg 
-        strong 0x983478..
-    table.table.table-bordered
-      thead
-        tr
-          td #
-          td Name
-          td Holdings
-      tbody
-        each member, index in members
-          tr
-            td= index+1                                
-            td
-              .dapp-identicon.dapp-identicon-default.dapp-small(href='')                               
-              span=member.name
-            td= member.holdings

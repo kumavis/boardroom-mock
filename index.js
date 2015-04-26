@@ -1,7 +1,6 @@
 var fs = require('fs')
 var jade = require('jade')
 
-// render main
 
 var TEMPLATES = {
   main: jade.compile(fs.readFileSync('./templates/main.jade').toString()),
@@ -22,23 +21,40 @@ APP_STATE = {
     vapor: {
       key: 'vapor',
       name: 'Vapor DAO',
+      budget: 3000,
       proposals: [
         {
-          name: 'Make public offer (chunk)',
-          type: 'Offer Proposal',
+          name: 'Elect Initial Chairperson',
+          type: 'New Chair',
           by: 'Aaron Davis',
-          value: '20%',
+          value: 'Aaron Davis',
           votes: '3/3',
           state: 'won',
-        },{
-          name: 'Review proposed offer',
-          type: 'Offer Review',
-          by: 'Ed Snow',
-          value: '20%',
-          votes: '0/3',
-          state: 'vote',
+        }, {
+          name: 'Hire Design Work',
+          type: 'Other',
+          by: 'Joel Dietz',
+          value: '1000 USD',
+          votes: '3/3',
+          state: 'won',
         },
+        // {
+        //   name: 'Make public offer (chunk)',
+        //   type: 'Public Offer',
+        //   by: 'Aaron Davis',
+        //   value: '20%',
+        //   votes: '3/3',
+        //   state: 'won',
+        // },{
+        //   name: 'Review proposed offer',
+        //   type: 'Offer Review',
+        //   by: 'Ed Snow',
+        //   value: '20%',
+        //   votes: '0/3',
+        //   state: 'vote',
+        // },
       ],
+      chairPerson: 'Aaron Davis',
       members: [
         {
           name: 'Aaron Davis',
@@ -53,11 +69,7 @@ APP_STATE = {
       ],
     },
   },
-  offers: {
-    vapor: {
-      key: 'vapor',
-    },
-  },
+  offers: {},
 }
 
 // setup navigation
@@ -71,7 +83,7 @@ $(document.body).on('click', '.btn-nav', function(){
 
 render('main')
 // render('main|offers')
-render('main|boards|board:boards.vapor')
+// render('main|boards|board:boards.vapor')
 
 
 // util
@@ -113,6 +125,10 @@ function lookupByPath(obj, path) {
   return result
 }
 
+function handlePublicOffer(board, prop) {
+  APP_STATE.offers.vapor = { key: 'vapor' }
+}
+
 // global action handlers? ah naw!
 var window = (0,eval)('window')
 
@@ -127,10 +143,37 @@ window.createProposal = function(board){
     var value = $(this).val()
     newProp[key] = value
   })
+  if (newProp.type === 'Public Offer') {
+    handlePublicOffer(board, newProp)
+  }
   // abort if no name
   if (!newProp.name || !newProp.type) return
   // add new prop
   board.proposals.push(newProp)
   // re-render
   render()
+}
+
+window.takeOffer = function(key) {
+  var board = APP_STATE.boards[key]
+  // close offer
+  delete APP_STATE.offers[key]
+  // create review prop
+  var newProp = {
+    name: 'Review proposed offer',
+    type: 'Offer Review',
+    by: 'BoardRoom',
+    value: '20%',
+    votes: '0/3',
+    state: 'vote',
+  }
+  board.proposals.push(newProp)
+  // close offer proposal prop
+  var offerProp = board.proposals.filter(function(prop){
+    return prop.type === 'Public Offer' && prop.state === 'vote'
+  })[0]
+  offerProp.votes = '3/3'
+  offerProp.state = 'won'
+  // navigate to board
+  render('main|boards|board:boards.'+key)
 }
