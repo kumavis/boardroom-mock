@@ -41,10 +41,6 @@ h3= name
     .panel-heading
       i.glyphicon.glyphicon-check
       |  Proposals
-    |                     
-    .panel-body
-      p The active and finished proposals.
-    |                     
     table.table.table-bordered
       thead
         tr
@@ -129,48 +125,17 @@ h3= name
         i.glyphicon.glyphicon-registration-mark
         |  NameReg 
         strong 0x983478..
-    |                     
-    .panel-body
-      p These are the board members.
-    |                     
     table.table.table-bordered
       thead
         tr
           td #
-          |                                 
-          td Identicon
-          |                                 
           td Name
-          // <td colspan="2">Address</td>
-          td Actions
-      |                         
+          td Holdings
       tbody
-        tr
-          td 1
-          |                                 
-          td
-            a.dapp-identicon.dapp-identicon-default.dapp-small(href='')
-          |                                 
-          td
-            | Nick Dodson 
-            b (Chair)
-          // <td>0x03b5e03b19b21e0872af8c278fea15fb1b8c1b29</td>
-          td
-            button.btn.btn-default(type='button') Propose Removal
-            |                                     
-            button.btn.btn-default(type='button')
-              i.glyphicon.glyphicon-comment
-        |                             
-        tr
-          td 2
-          |                                 
-          td
-            a.dapp-identicon.dapp-identicon-default.dapp-small(href='')
-          |                                 
-          td John Reddman
-          // <td>0xd48faff315c0f9325a2e071296f73a583eb18a679</td>
-          td
-            button.btn.btn-default(type='button') Propose Removal
-            |                                     
-            button.btn.btn-default(type='button')
-              i.glyphicon.glyphicon-comment
+        each member, index in members
+          tr
+            td= index+1                                
+            td
+              .dapp-identicon.dapp-identicon-default.dapp-small(href='')                               
+              span=member.name
+            td= member.holdings

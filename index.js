@@ -39,6 +39,18 @@ APP_STATE = {
           state: 'vote',
         },
       ],
+      members: [
+        {
+          name: 'Aaron Davis',
+          holdings: '70%',
+        }, {
+          name: 'Joel Dietz',
+          holdings: '15%',
+        }, {
+          name: 'Martin Becze',
+          holdings: '15%',
+        }
+      ],
     },
   },
   offers: {
@@ -115,6 +127,9 @@ window.createProposal = function(board){
     var value = $(this).val()
     newProp[key] = value
   })
+  // abort if no name
+  if (!newProp.name || !newProp.type) return
+  // add new prop
   board.proposals.push(newProp)
   // re-render
   render()
