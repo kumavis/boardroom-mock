@@ -58,13 +58,13 @@ APP_STATE = {
       members: [
         {
           name: 'Aaron Davis',
-          holdings: '70%',
+          holdings: 64,
         }, {
           name: 'Joel Dietz',
-          holdings: '15%',
+          holdings: 18,
         }, {
           name: 'Martin Becze',
-          holdings: '15%',
+          holdings: 18,
         }
       ],
     },
@@ -164,7 +164,7 @@ window.takeOffer = function(key) {
     type: 'Offer Review',
     by: 'BoardRoom',
     value: '20%',
-    votes: '0/3',
+    votes: '2/3',
     state: 'vote',
   }
   board.proposals.push(newProp)
@@ -176,4 +176,25 @@ window.takeOffer = function(key) {
   offerProp.state = 'won'
   // navigate to board
   render('main|boards|board:boards.'+key)
+}
+
+window.handleProposalAction = function(board, propIndex) {
+  var prop = board.proposals[propIndex]
+  if (prop.type !== 'Offer Review') return
+  // close offer review prop
+  var offerProp = board.proposals.filter(function(prop){
+    return prop.type === 'Offer Review' && prop.state === 'vote'
+  })[0]
+  offerProp.votes = '3/3'
+  offerProp.state = 'won'
+  // update cap table
+  board.members.forEach(function(member){
+    member.holdings -= member.holdings * 0.2
+  })
+  // add yco
+  board.members.push({
+    name: 'Y Combinator',
+    holdings: 20,
+  })
+  render()
 }

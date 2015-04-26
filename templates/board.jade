@@ -50,7 +50,7 @@ h3= name
             td
               .dapp-identicon.dapp-identicon-default.dapp-small(href='')                               
               span.app-user-icon-label=member.name
-            td= member.holdings
+            td #{member.holdings}%
 
 
 .col-md-6
@@ -73,6 +73,7 @@ h3= name
       tbody
         each prop, iterativeIndex in proposals.slice().reverse()
           -var index = proposals.length - iterativeIndex
+          -var propIndex = index - 1
           tr
             td= index
             td= prop.name
@@ -84,12 +85,18 @@ h3= name
               case prop.state
                 
                 when 'vote'
-                  button.btn.btn-default.btn-primary(type='button')
+                  button.btn.btn-default.btn-primary(
+                    type='button'
+                    onclick='window.handleProposalAction(APP_STATE.boards.#{key}, #{propIndex})'
+                  )
                     | Vote
                     i.glyphicon.glyphicon-ok
 
                 when 'won'
-                  button.btn.btn-default.btn-success(type='button')
+                  button.btn.btn-default.btn-success(
+                    type='button'
+                    onclick='window.handleProposalAction(APP_STATE.boards.#{key}, #{propIndex})'
+                  )
                     | Won 
                     i.glyphicon.glyphicon-flash
 
