@@ -137,7 +137,7 @@ var window = (0,eval)('window')
 window.createProposal = function(board){
   var newProp = {
     by: 'Aaron Davis',
-    votes: '0/3',
+    votes: '0/'+board.members.length,
     state: 'vote',
   }
   $('.form-control').each(function(){
@@ -158,24 +158,25 @@ window.createProposal = function(board){
 
 window.takeOffer = function(key) {
   var board = APP_STATE.boards[key]
-  // close offer
+  // remove offer
   delete APP_STATE.offers[key]
-  // create review prop
-  var newProp = {
-    name: 'Review proposed offer',
-    type: 'Offer Review',
-    by: 'BoardRoom',
-    value: '20%',
-    votes: '2/3',
-    state: 'vote',
-  }
-  board.proposals.push(newProp)
   // close offer proposal prop
   var offerProp = board.proposals.filter(function(prop){
     return prop.type === 'Public Offer' && prop.state === 'vote'
   })[0]
   offerProp.votes = '3/3'
   offerProp.state = 'won'
+  var origOfferValue = offerProp.value
+  // create review prop
+  var newProp = {
+    name: 'Review proposed offer',
+    type: 'Offer Review',
+    by: 'BoardRoom',
+    value: origOfferValue,
+    votes: '2/3',
+    state: 'vote',
+  }
+  board.proposals.push(newProp)
   // navigate to board
   render('main|boards|board:boards.'+key)
 }
