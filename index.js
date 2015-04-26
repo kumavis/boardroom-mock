@@ -16,9 +16,30 @@ var TEMPLATES = {
   not_found: jade.compile(fs.readFileSync('./templates/not_found.jade').toString()),
 }
 
-var APP_STATE = {
+// its global baby
+var APP_STATE = window.APP_STATE = {
   boards: {
-    vapor: { name: 'vapor' }
+    vapor: {
+      key: 'vapor',
+      name: 'Vapor DAO',
+      proposals: [
+        {
+          name: 'Make public offer (chunk)',
+          type: 'Offer Proposal',
+          by: 'Aaron Davis',
+          value: '20%',
+          votes: '3/3',
+          state: 'won',
+        },{
+          name: 'Review proposed offer',
+          type: 'Offer Review',
+          by: 'Ed Snow',
+          value: '20%',
+          votes: '0/3',
+          state: 'vote',
+        },
+      ],
+    },
   },
   offers: {
     vapor: { name: 'vapor' },
@@ -46,7 +67,8 @@ function render(viewName){
   // redirect
   if (viewName === 'main') viewName = 'main|home'
   // build stack
-  renderStack(viewName.split('|'))
+  var stack = viewName ? viewName.split('|') : APP_STATE.viewStack
+  renderStack(stack)
 }
 
 function renderStack(stack){
@@ -76,4 +98,22 @@ function lookupByPath(obj, path) {
     result = result[segment]
   })
   return result
+}
+
+// global action handlers? ah naw!
+
+window.createProposal = function(board){
+  var newProp = {
+    by: 'Aaron Davis',
+    votes: '0/3',
+    state: 'vote',
+  }
+  $('.form-control').each(function(){
+    var key = $(this).data('key')
+    var value = $(this).val()
+    newProp[key] = value
+  })
+  board.proposals.push(newProp)
+  // re-render
+  render()
 }

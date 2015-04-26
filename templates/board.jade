@@ -49,57 +49,36 @@ h3= name
       thead
         tr
           td #ID
-          |                                 
           td Name
-          |                                 
           td Type
-          |                                 
           td By
-          |                                 
           td Value
-          |                                 
           td Votes
-          // <td colspan="2">Address</td>
           td Actions
       |                         
       tbody
-        tr
-          td 1
-          |                                 
-          td Make Jack a Member
-          |                                 
-          td Add Member
-          |                                 
-          td (C) N. Dodson
-          |                                 
-          td 0
-          |                                 
-          td 1/2
-          // <td>0xd0xd48f..</td>
-          td
-            button.btn.btn-default.btn-primary(type='button')
-              | Vote 
-              i.glyphicon.glyphicon-ok
-            // <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-share-alt"></i></button>
-        |                             
-        tr(style='background: #F1F1F1;')
-          td 0
-          |                                 
-          td
-            a(href='http://meteor-dapp-boardroom.meteor.com/balan3e.io/Dhjs778d') 2015 Budget
-          |                                 
-          td Exec
-          |                                 
-          td J. Reddman
-          |                                 
-          td E 430.50
-          |                                 
-          td 2/2
-          // <td>0xhsjFHS..</td>
-          td
-            button.btn.btn-default.btn-success(type='button')
-              | Won 
-              i.glyphicon.glyphicon-flash
+        each prop, iterativeIndex in proposals.slice().reverse()
+          -var index = proposals.length - iterativeIndex
+          tr
+            td= index
+            td= prop.name
+            td= prop.type
+            td= prop.by
+            td= prop.value
+            td= prop.votes
+            td
+              case prop.state
+                
+                when 'vote'
+                  button.btn.btn-default.btn-primary(type='button')
+                    | Vote
+                    i.glyphicon.glyphicon-ok
+
+                when 'won'
+                  button.btn.btn-default.btn-success(type='button')
+                    | Won 
+                    i.glyphicon.glyphicon-flash
+        
   |                 
   .panel.panel-default.panel-dapp
     .panel-heading
@@ -166,38 +145,38 @@ h3= name
     |                     
     .panel-body
       form
-        input.form-control(type='text', placeholder='Name', style='float: left; width: 48%;')
-        |                             
-        select.form-control(style='float: left; width: 48%; margin-left: 4%;')
-          option Type
-          |                                 
-          option Exec
-          |                                 
-          option Add Member
-          |                                 
+        input.form-control(
+          type='text'
+          placeholder='Name'
+          style='float: left; width: 48%;'
+          data-key='name'
+        )
+        select.form-control(
+          style='float: left; width: 48%; margin-left: 4%;'
+          data-key='type'
+        )
+          option Type                       
+          option Exec              
+          option Add Member              
           option Remove Member
-          |                                 
           option New Chair
-        |                             
+                            
         br
-        |                             
         br
-        |                             
-        input.form-control(type='text', placeholder='To Addr.', style='margin-top: 15px;')
-        //
-          <hr />
-          <input type="text" placeholder="URL" class="form-control">
-          <br>
-          <input type="text" placeholder="Value" class="form-control">
+
+        input.form-control(
+          type='text'
+          placeholder='Value'
+          style='margin-top: 15px;'
+          data-key='value'
+        )
+
         hr
-        |                             
-        button.btn.btn-default(type='button') Value+
-        |                             
-        button.btn.btn-default(type='button') URL+
-        |                             
-        button.btn.btn-default(type='button') Clear
-        |                             
-        button.btn.btn-default.btn-primary(type='button') Table Proposal
+
+        button.btn.btn-default.btn-primary(
+          type='button'
+          onclick='createProposal(APP_STATE.boards.#{key})'
+        ) Table Proposal
   |                 
   .panel.panel-default.panel-dapp
     .panel-heading
