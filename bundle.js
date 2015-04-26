@@ -44,7 +44,9 @@ var APP_STATE = window.APP_STATE = {
     },
   },
   offers: {
-    vapor: { name: 'vapor' },
+    vapor: {
+      key: 'vapor',
+    },
     kittenFund: { name: 'kittenFund' },
   },
 }
