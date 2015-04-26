@@ -198,6 +198,8 @@ window.handleProposalAction = function(board, propIndex) {
     name: 'Y Combinator',
     holdings: 20,
   })
+  // update budget
+  board.budget += 100000 // 100k usd
   render()
 }
 }).call(this,require("buffer").Buffer)
